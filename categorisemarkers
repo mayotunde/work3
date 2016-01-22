@@ -26,7 +26,7 @@ style: function(feature, latlng){
 switch(feature.properties.Type){
 case 'pry':return{fillColor:'#813', color:'#000'};
 case 'sec':return{fillColor:'#e9b50b', color:'#000'};
-case 'sec':return{fillColor:'#318fff', color:'#000'};
+case 'mxd':return{fillColor:'#318fff', color:'#000'};
       }}}).addTo(map);
   });
   </script>
