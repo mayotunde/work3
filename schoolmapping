@@ -16,9 +16,9 @@ L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
 	subdomains: 'abcd',
 	maxZoom: 19}).addTo(map);
 
+var style = {fillColor:'#f45', color:'white', opacity:0.6};
 
-
-  $.getJSON("", function(data) {
+  $.getJSON("https://cdn.rawgit.com/mayotunde/work3/gh-pages/schools.json", function(data) {
     var geojson = L.geoJson(data, {
       pointToLayer: function (feature, latlng) {
         marker = new L.circleMarker(latlng, style)
