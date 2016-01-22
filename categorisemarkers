@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>Load Geojson point features with style from github</title>
+<title>Load and categorise Geojson point features based on properties from github</title>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
    
   <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
@@ -15,7 +15,7 @@
 L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ',
 { attribution:' Map data &copy;<a href="http://mapsnigeriainitiative.wordpress.com">mapsNI</a>', maxZoom: 18, }).addTo(map);
 
-var style = {fillColor:'#f45', color:'white', opacity:0.6};
+var style = {radius: 6, opacity:0.6};
 
   $.getJSON("https://cdn.rawgit.com/mayotunde/work3/gh-pages/schools.json", function(data) {
     var geojson = L.geoJson(data, {
@@ -26,6 +26,7 @@ style: function(feature, latlng){
 switch(feature.properties.Type){
 case 'pry':return{fillColor:'#813', color:'#000'};
 case 'sec':return{fillColor:'#e9b50b', color:'#000'};
+case 'sec':return{fillColor:'#318fff', color:'#000'};
       }}}).addTo(map);
   });
   </script>
