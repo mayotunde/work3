@@ -33,5 +33,5 @@ case 'mxd':return{fillColor:'#318fff', color:'#000'};
 </body>
 </html>
 
-   '&copy'mapsnigeriainitiative 
+   &copy:mapsnigeriainitiative 
 
