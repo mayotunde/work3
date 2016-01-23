@@ -13,11 +13,11 @@
 <div id="map" style="width: 800px;height: 500px"></div>
 
 <script>
-var map = L.map('map').setView([14.6, 2.9], 5);
+var map = L.map('map').setView([7.889, 3.770], 10);
 var base = L.tileLayer.provider('HikeBike.HikeBike', {attribution: '&copy:<a href="http://mapbox.com">mapbox</a>'}).addTo(map);
 
 
-$.getJSON("", function(data) {
+$.getJSON("https://cdn.rawgit.com/mayotunde/work3/gh-pages/schools.json", function(data) {
     var geojson = L.geoJson(data, {
       pointToLayer: function (feature, latlng) {
         marker = new L.circleMarker(latlng)
