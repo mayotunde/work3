@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>layer controls in Leaflet maps</title>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>
+</head>
+<body>
+<div id="map" style="width: 700px;height: 500px"></div>
+<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+<script>
+
+var areas = new L.LayerGroup();
+
+L.polygon([[11.55, 25.36],[6.53, 25.08],[2.30, 28.32],[1.71, 33.82],[8.94, 36.51],[13.41, 35.68],[13.21, 27.77]]).bindPopup("Central reserve").addTo(areas);
+
+
+
+var attr = 'Map data &copy; <a href="http://openstreetmap.org">openstreetmap</a>, ' +
+			'<a href="http://www.mapsnigeriainitiative.wordpress.com">mapsnigeriainitiative</a>, ' +
+			'<a href="http://stamen.com">stamen</a>';
+
+
+var basemaps = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: attr}),
+       gray = L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {attribution: attr});
+
+var map = L.map('map', {center: [15.55,32.53],zoom: 3,layers: [basemaps, areas]	});
+
+var basemaps = {"basemaps": basemaps,"gray": gray};
+var areas = {"areas": areas};
+
+
+L.control.layers(basemaps, areas, {collapsed: false}).addTo(map);
+</script>
+</body>
+</html>
